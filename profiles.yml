@@ -1,0 +1,11 @@
+dbt_fabric_demo:
+  target: dev
+  outputs:
+    dev:
+      type: fabric
+      driver: 'ODBC Driver 18 for SQL Server'
+      server: "{{ env_var('FABRIC_ENDPOINT') }}"
+      port: 1433
+      database: fabricdemodwh
+      schema: dbt_sam
+      authentication: CLI
