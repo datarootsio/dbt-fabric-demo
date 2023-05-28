@@ -4,7 +4,7 @@ dbt_fabric_demo:
     dev:
       type: fabric
       driver: 'ODBC Driver 18 for SQL Server'
-      server: "{{ env_var('FABRIC_ENDPOINT') }}"
+      server: jxze2xljm6delfcv3vw3h4ypby-u6fwvanlqbou3obaux5xj3b37i.datawarehouse.pbidedicated.windows.net
       port: 1433
       database: fabricdemodwh
       schema: dbt_sam

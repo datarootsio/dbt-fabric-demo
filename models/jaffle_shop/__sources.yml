@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: fabricdemolh
+    schema: dbo
+    tables:
+      - name: orders
+        identifier: jaffle_raw_orders
+      - name: customers
+        identifier: jaffle_raw_customers
+      - name: payments
+        identifier: jaffle_raw_payments

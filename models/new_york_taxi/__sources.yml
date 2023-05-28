@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: new_york_taxi
+    database: fabricdemolh
+    schema: dbo
+    tables:
+      - name: green
+        identifier: nyt_green
+      - name: yellow
+        identifier: nyt_yellow

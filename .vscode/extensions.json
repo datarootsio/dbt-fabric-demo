@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "redhat.vscode-yaml",
+        "innoverio.vscode-dbt-power-user",
+        "ms-python.python"
+    ]
+}
