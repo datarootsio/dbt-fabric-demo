@@ -19,3 +19,7 @@ models:
   dbt_fabric_demo:
     example:
       +materialized: view
+      +schema: example
+    jaffle_shop:
+      +schema: jaffle_shop
+      +materialized: table
