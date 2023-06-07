@@ -1,13 +1,27 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
+  - name: ecom
     database: fabricdemolh
     schema: dbo
+    description: E-commerce data
     tables:
-      - name: orders
-        identifier: jaffle_raw_orders
-      - name: customers
-        identifier: jaffle_raw_customers
-      - name: payments
-        identifier: jaffle_raw_payments
+      - name: raw_orders
+        identifier: jaffle_shop_raw_orders
+        description: One record per order (consisting of one or more order items)
+      - name: raw_customers
+        identifier: jaffle_shop_raw_customers
+        description: One record per person who has purchased one or more items
+      - name: raw_supplies
+        identifier: jaffle_shop_raw_supplies
+        description: One record per supply per SKU of items sold in stores
+      - name: raw_items
+        identifier: jaffle_shop_raw_items
+        description: Items included in an order
+      - name: raw_products
+        identifier: jaffle_shop_raw_products
+        description: One record per SKU for items sold in stores
+      - name: raw_stores
+        identifier: jaffle_shop_raw_stores
+        description: One record per physical store location
+
