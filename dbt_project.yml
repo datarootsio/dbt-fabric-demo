@@ -23,3 +23,6 @@ models:
     jaffle_shop:
       +schema: jaffle_shop
       +materialized: table
+    new_york_taxi:
+      +schema: new_york_taxi
+      +materialized: view
