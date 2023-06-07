@@ -23,8 +23,6 @@ models:
   materialized: view
   dbt_fabric_demo:
     example:
-      marts:
-        materialized: table
       schema: example
     jaffle_shop:
       marts:

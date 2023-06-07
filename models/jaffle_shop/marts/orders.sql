@@ -1,3 +1,10 @@
+{{
+    config(
+        materialized = 'incremental',
+        unique_key = 'order_id'
+    )
+}}
+
 with
 
 orders_set as (
@@ -5,7 +12,7 @@ orders_set as (
     select * from {{ ref('stg_orders') }}
 
     where
-        true
+        1=1
 
         {% if is_incremental() %}
 
@@ -68,7 +75,7 @@ order_items_summary as (
 
     left join products on order_items.product_id = products.product_id
 
-    group by 1
+    group by order_items.order_id
 
 ),
 
@@ -84,11 +91,11 @@ order_supplies_summary as (
 
     left join supplies on order_items.product_id = supplies.product_id
 
-    group by 1
+    group by order_items.order_id
 
 ),
 
-joined as (
+final as (
 
     select
 
@@ -113,18 +120,6 @@ joined as (
         on orders_set.order_id = order_supplies_summary.order_id
     left join locations
         on orders_set.location_id = locations.location_id
-
-),
-
-final as (
-
-    select
-
-        *,
-        count_food_items > 0 as is_food_order,
-        count_drink_items > 0 as is_drink_order
-
-    from joined
 
 )
 
