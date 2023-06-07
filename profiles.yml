@@ -9,3 +9,4 @@ dbt_fabric_demo:
       database: fabricdemodwh
       schema: dbt_sam
       authentication: CLI
+      threads: 1
