@@ -16,13 +16,17 @@ clean-targets:
   - "dbt_packages"
 
 models:
+  materialized: view
   dbt_fabric_demo:
     example:
-      +materialized: view
-      +schema: example
+      marts:
+        materialized: table
+      schema: example
     jaffle_shop:
-      +schema: jaffle_shop
-      +materialized: table
+      marts:
+        materialized: table
+      schema: jaffle_shop
     new_york_taxi:
-      +schema: new_york_taxi
-      +materialized: view
+      marts:
+        materialized: table
+      schema: new_york_taxi
