@@ -1,5 +1,13 @@
 # Demo notes
 
+## Clean
+
+dbt clean
+dbt run-operation drop_schema --args '{schema_to_drop: dbt_sam_example}'
+dbt run-operation drop_schema --args '{schema_to_drop: dbt_sam_new_york_taxi}'
+dbt run-operation drop_schema --args '{schema_to_drop: dbt_sam_jaffle_shop}'
+dbt run-operation drop_schema --args '{schema_to_drop: dbt_sam_dbt_test__audit}'
+
 ## Example - models & lineage / docs
 
 models / example / my_first_model
