@@ -29,6 +29,8 @@ models:
         materialized: table
       schema: jaffle_shop
     new_york_taxi:
+      intermediate:
+        materialized: table
       marts:
         materialized: table
       schema: new_york_taxi

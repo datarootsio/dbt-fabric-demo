@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: int_distance_per_day_part_green
+    description: Average distance per day part for green taxis
+    columns:
+      - name: pickup_day_part
+        description: '{{ doc("taxi_pickup_day_part") }}'
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values:
+                - morning
+                - afternoon
+                - evening
+                - night
+      - name: avg_distance
+        description: '{{ doc("taxi_pickup_day_part") }}'
+        tests:
+          - not_null
+          - unique
+
+  - name: int_distance_per_day_part_yellow
+    description: Average distance per day part for yellow taxis
+    columns:
+      - name: pickup_day_part
+        description: '{{ doc("taxi_pickup_day_part") }}'
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values:
+                - morning
+                - afternoon
+                - evening
+                - night
+
+      - name: avg_distance
+        description: '{{ doc("taxi_pickup_day_part") }}'
+        tests:
+          - not_null
+          - unique

@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: mrt_distance_per_day_part
+    description: Average distance per day part for all taxis
+    columns:
+      - name: pickup_day_part
+        description: '{{ doc("taxi_pickup_day_part") }}'
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - morning
+                - afternoon
+                - evening
+                - night
+      - name: avg_distance
+        description: '{{ doc("taxi_pickup_day_part") }}'
+        tests:
+          - unique
+          - not_null
+      - name: taxi
+        description: Yellow or green taxis
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - yellow
+                - green
