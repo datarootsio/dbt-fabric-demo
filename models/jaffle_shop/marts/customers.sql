@@ -16,7 +16,7 @@ order_summary as (
 
     select
         customer_id,
-
+        case when count(*) > 1 then 1 else 0 end as is_repeat_buyer,
         count(*) as count_lifetime_orders,
         min(ordered_at) as first_ordered_at,
         max(ordered_at) as last_ordered_at,
@@ -37,7 +37,12 @@ joined as (
         order_summary.first_ordered_at,
         order_summary.last_ordered_at,
         order_summary.lifetime_spend_pretax,
-        order_summary.lifetime_spend
+        order_summary.lifetime_spend,
+
+        case
+            when order_summary.is_repeat_buyer = 1 then 'returning'
+            else 'new'
+        end as customer_type
 
     from customers
 

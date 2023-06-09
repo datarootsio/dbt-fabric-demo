@@ -21,6 +21,11 @@ models:
         description: The sum of all the pre-tax subtotals of every order a customer has placed.
       - name: lifetime_spend
         description: The sum of all the order totals (including tax) that a customer has ever placed.
+      - name: customer_type
+        description: Options are 'new' or 'returning', indicating if a customer has ordered more than once or has only placed their first order to date.
+        tests:
+          - accepted_values:
+              values: ["new", "returning"]
 
   - name: orders
     description: Order overview data mart, offering key details for each order inlcluding if it's a customer's first order and a food vs. drink item breakdown. One row per order.
@@ -59,4 +64,8 @@ models:
       - name: location_name
         description: The full location name of where this order was placed. Denormalized from `stg_locations`.
       - name: is_first_order
-        description: A boolean indicating if this order is from a new customer placing their first order.
+        description: A bit indicating if this order is from a new customer placing their first order.
+      - name: is_food_order
+        description: A bit indicating if this order included any food items.
+      - name: is_drink_order
+        description: A bit indicating if this order included any drink items.

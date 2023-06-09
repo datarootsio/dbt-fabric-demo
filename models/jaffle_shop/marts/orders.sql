@@ -95,7 +95,7 @@ order_supplies_summary as (
 
 ),
 
-final as (
+joined as (
 
     select
 
@@ -120,6 +120,18 @@ final as (
         on orders_set.order_id = order_supplies_summary.order_id
     left join locations
         on orders_set.location_id = locations.location_id
+
+),
+
+final as (
+
+    select
+
+        *,
+        case when count_food_items > 0 then 1 else 0 end as is_food_order,
+        case when count_drink_items > 0 then 1 else 0 end as is_drink_order
+
+    from joined
 
 )
 
